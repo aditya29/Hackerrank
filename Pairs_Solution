@@ -1,0 +1,89 @@
+import java.util.*;
+
+public class Pairs_Solution {
+    static int pairs(Set<Integer> s,int k) {
+      /* Complete this function */
+        int numPairs = 0;
+        
+        for(Integer i : s)
+        {
+        	int temp = i + k;
+        	if(s.contains(temp))
+        		numPairs++;
+        }
+        
+        /**
+        for(int i = 0; i < a.length - 1; i++)
+        {
+        	int temp = a[i];
+        	for(int j = i; j < a.length; j++)
+        	{
+        		int temp2 = a[j];
+        		int diff = Math.abs(temp2-temp);
+        		if(diff == k)
+        		{
+        			numPairs++;
+        		}
+        	}
+        }
+        */
+        
+        return numPairs;
+    }
+    /*
+    static int pairs(int[] a,int k) {
+       // /* Complete this function */
+        /*  int numPairs = 0;
+          
+          for(int i = 0; i < a.length - 1; i++)
+          {
+          	int temp = a[i];
+          	for(int j = i; j < a.length; j++)
+          	{
+          		int temp2 = a[j];
+          		int diff = Math.abs(temp2-temp);
+          		if(diff == k)
+          		{
+          			numPairs++;
+          		}
+          	}
+          }*/
+       /*   
+          return numPairs;
+      }
+	**/
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int res;
+        
+        String n = in.nextLine();
+        String[] n_split = n.split(" ");
+        
+        int _a_size = Integer.parseInt(n_split[0]);
+        int _k = Integer.parseInt(n_split[1]);
+        
+        int[] _a = new int[_a_size];
+
+        String next = in.nextLine();
+        String[] next_split = next.split(" ");
+        
+        /**
+        for(int _a_i = 0; _a_i < _a_size; _a_i++) {
+            _a_item = Integer.parseInt(next_split[_a_i]);
+            _a[_a_i] = _a_item;
+        }
+        */
+        
+        Set<Integer> s = new HashSet<Integer>();
+         
+        for(int i = 0; i < _a_size; i++)
+        {
+        	s.add(Integer.parseInt(next_split[i]));
+        }
+        
+        res = pairs(s,_k);
+        //System.out.println("3");
+        //System.out.println(res);
+    }
+}
